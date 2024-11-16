@@ -25,10 +25,10 @@ builds and validates the blockchain. There is no block mining implemented becaus
 - The consensus process is done every 2 minutes to ensure the application blockchain remains synched with the network longest chain
 
 ## [BioInformatics](BioInformatics)
-### Pattern Matching with Brute Force & Knuth-Morris-Pratt
+### [Pattern Matching with Brute Force & Knuth-Morris-Pratt](BioInformatics/Pattern_Matching)
 
-### Multiple Sequence Alignment with ClustalW
+### [Multiple Sequence Alignment with ClustalW](BioInformatics/Multiple_Sequence_Alignment)
 
-### Neighbour Joining
+### [Neighbour Joining](BioInformatics/Neighbour_Joining/)
 
-### Hidden Markov Models
+### [Hidden Markov Models](BioInformatics/Hidden_Markov_Models)
