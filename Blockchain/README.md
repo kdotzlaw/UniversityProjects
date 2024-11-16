@@ -1,6 +1,3 @@
-# READ ME
-##### Katrina Dotzlaw 7833061   
-##### COMP 3010 A3   
 
 ## Run Instructions   
 Run with: `python3 a3.py {host} {port}`
