@@ -13,3 +13,5 @@ Implemented an Echo State Network, evaluated the impact of hyperparameters on th
 - Optimized weights using ridge regression and hyperparameter tuning.
 - Used cross validation on the validation dataset (a subset of the original dataset), optimized the number of hidden layer neurons, the amount of training data used to train the model, and the regularization parameter. Evaluated error using Mean-Square Error (MSE) and K-Step Ahead Prediction.
 - Resulting model has predicted values very close to actual values for both datasets using 1-Step Ahead Prediction. The further you forcast (ie the larger the K-Step), the less accurate the results because of needing to use prediction data instead of training data and error compounds.
+
+## [Blockchain](Blockchain/a3.py)
