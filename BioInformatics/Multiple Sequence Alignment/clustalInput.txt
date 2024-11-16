@@ -1,0 +1,9 @@
+A-B,C-D,AB-CD
+>A
+GTTAT
+>B
+CGTTT
+>C
+GCAAT
+>D
+CCGAT
