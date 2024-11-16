@@ -23,3 +23,12 @@ builds and validates the blockchain. There is no block mining implemented becaus
 - Each block is individually validated when its received
 - The chain is validated end-to-end before sending it to a peer
 - The consensus process is done every 2 minutes to ensure the application blockchain remains synched with the network longest chain
+
+## [BioInformatics](BioInformatics)
+### Pattern Matching with Brute Force & Knuth-Morris-Pratt
+
+### Multiple Sequence Alignment with ClustalW
+
+### Neighbour Joining
+
+### Hidden Markov Models
