@@ -51,8 +51,21 @@ to determine the total probability that the given output sequence is produced by
 
 
 ## [Computer Security](ComputerSecurity/)
-A collection of various assignments done in a Computer Security course at the University of Manitoba using Python, C, and Linux.
+
+A collection of various assignments done in a Computer Security course at the University of Manitoba using Python, SQL, C, and Linux.
+
+### [Encryption and Decryption](ComputerSecurity/rsa)
+
+A comparison between CBC encryption and ECB encryption on a given image, and a demonstration of  RSA encryption and decryption on given text.
+
+### [Buffer Overflow Exploit & Address Randomization](ComputerSecurity/buffer-overflow)
+An experiment to determine the impact of address randomization on buffer overflow exploits, and a demonstration of a buffer overflow exploit.
+
+### [Environment Variables](ComputerSecurity/env-vars)
+A demonstration of environment variable manipulation in Linux, including passing environment variables between processes. Additionally explores the PATH environment variable and how it affects SUID programs.
+
 ### [SQL Injection](ComputerSecurity/SQL-injection)
-###
-###
-###
+Demonstrates  SQL injection attacks on a website using both CMD and website user input to perform injections. SQL injections include injection via `SELECT`, appending a new SQL statement to user input, and injection via `UPDATE`.
+
+### [SYN Flooding & SYN Cookie Countermeasure](ComputerSecurity/SYN-flooding)
+Demonstrates a SYN flooding attack and SYN cookie countermeasure using docker containers to simulate a victim and an attacker.
