@@ -48,3 +48,11 @@ A recursive bioinformatic algorithm that uses a matrix of taxa pairs and the ass
 ### [Hidden Markov Models](BioInformatics/Hidden_Markov_Models)
 An implementation of a stochastic model with the Markov property that uses a transition matrix, an emission matrix, the forward algorithm, and an output sequence
 to determine the total probability that the given output sequence is produced by the model.
+
+
+## [Computer Security](ComputerSecurity/)
+A collection of various assignments done in a Computer Security course at the University of Manitoba using Python, C, and Linux.
+### [SQL Injection](ComputerSecurity/SQL-injection)
+###
+###
+###
