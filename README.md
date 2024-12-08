@@ -1,4 +1,5 @@
 # University Projects
+A collection of various projects done during my bachelor's of Computer Science at the University of Manitoba.
 
 ## [Query Optimization](QueryOptimization.pdf)
 Wrote and optimized queries for Databases 2 at the University of Manitoba.
