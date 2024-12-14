@@ -120,42 +120,44 @@ def fillTable(table, seqsList1, seqsList2):
     """
     # if sequence size is 1, only passing in single characters, else passing in pairs of char0s, pairs of char1s...
     # calc SOP for each cell: SOP result always added to diagonal. Take MAX{SOP_diagonal, gap_top, gap_left}
-    # PREPROCESSING
+   # PREPROCESSING
     charList1 = [''] * len(seqsList1[0])
     charList2 = [''] * len(seqsList2[0])
-    # print(len(charList1), len(charList2))
+    
     # build character lists
     for count in range(len(seqsList1[0])):
         for s1 in seqsList1:
-            # numpy.char.join(charList1[count],s1[count])
-            # print(charList1[count])
             charList1[count] = charList1[count] + s1[count]
         for s2 in seqsList2:
             if count < len(seqsList2[0]):
-                charList2[count] = charList2[count] + (s2[count])
+                charList2[count] = charList2[count] + s2[count]
             else:
                 break
-            # numpy.char.join(charList2[count],s2[count])
-    # print(charList1, charList2)
+                
     # Sum of Pairs
-    # print("Lengths " + str(len(charList1)) + " " + str(len(charList2)))
     for i in range(1, len(charList2) + 1):
         for j in range(1, len(charList1) + 1):
-            # print(i-1, j-1)
             sop = calculateSumOfPairs([charList1[j - 1]], [charList2[i - 1]])
-            if sop ==1:
-               table[i][j] = table[i - 1][j - 1] + sop
-            # print("match/mismatch: ", sop)
+            
+            # Debug output near the cell we're interested in
+            if i == 4 and j == 5:
+                print(f"\nCalculating cell (4,5):")
+                print(f"Characters being compared: {charList1[j-1]} with {charList2[i-1]}")
+                print(f"SOP value: {sop}")
+                print(f"Diagonal score would be: {table[i-1][j-1]} + {sop} = {table[i-1][j-1] + sop}")
+                print(f"Top score would be: {table[i][j-1]} + {gapCost} = {table[i][j-1] + gapCost}")
+                print(f"Left score would be: {table[i-1][j]} + {gapCost} = {table[i-1][j] + gapCost}")
+            
+            if sop == 1:
+                table[i][j] = table[i - 1][j - 1] + sop
             else:
                 diagonal = table[i - 1][j - 1] + sop
                 top = table[i][j - 1] + gapCost
                 left = table[i - 1][j] + gapCost
                 table[i][j] = max(diagonal, top, left)
-            # print(table[i][j])
-            '''diagonal = table[i-1][j-1]+sop
-            top = table[i][j - 1] + gapCost
-            left = table[i - 1][j] + gapCost
-            table[i][j] = max(diagonal, top, left)'''
+                
+            if i == 4 and j == 5:
+                print(f"Final score chosen: {table[i][j]}")
 
     return table
 
@@ -194,114 +196,7 @@ def calculateSumOfPairs(charList1, charList2):
     return result / normalize
 
 
-def traceback(table, seqsList1, seqsList2):
-    """This method does a traceback in the completed dynamic programming table to produce an alignment.
-    Only one optimal alignment is to be returned. In the case where an optimal score comes from more than one previous cell (diagonal, left, top), always prioritize,
-    in this order: (1) matches/mismatches, (2) gaps from the left, (3) gaps from the top.
-    This way, everyone will get the same optimal alignment.
 
-    Parameters
-    ----------
-    table : numpy array
-        The completed dynamic programming table.
-    
-    seqsList1 : list of strings
-        The list of sequences of the first group that was aligned (note: a group can be either one sequence or the result of a previous alignment).
-
-    seqsList2 : list of strings
-        The list of sequences of the second group that was aligned (note: a group can be either one sequence or the result of a previous alignment).
-
-    Returns
-    -------
-    list of strings
-        The list of strings representing a resulting alignment of seqsList1 with seqsList2 (note: each string must be the same length).
-
-    """
-    # start at the last position in the table (ie the score)
-    row = len(seqsList1[0])-1
-    col = len(seqsList2[0])-1
-    #print("Incoming: "+str(seqsList1)+" and "+str(seqsList2))
-    totalLen = len(seqsList1) + len(seqsList2)
-    # loop backwards; stops at 1 because checks are done -1 in each direction
-    score = table[row][col]
-    optimal = numpy.empty(totalLen, dtype="<U6")  # will be built in reverse - [0] is seq 1 optimal, [1] is seq2 optimal
-    # print(seqsList1, seqsList2)
-    flag = False
-    if totalLen > 2:
-        flag = True #indicating MSA
-    #initialize arrays of alignments
-    if flag:
-        optimal[0] = seqsList1[0][row]
-        #print(seqsList1[0], seqsList1[0][row])
-        optimal[1] = seqsList2[0][col]
-        optimal[2] = seqsList1[1][row]
-        optimal[3] = seqsList2[1][col]
-    else:
-        optimal[0] = seqsList1[0][row]
-        optimal[1]=seqsList2[0][col]
-    '''i = 0
-    while i < len(seqsList1):
-        optimal[i] = seqsList1[i][row]
-        optimal[i+1] = seqsList2[i][col]
-        print(seqsList1[i][row], seqsList2[i][col])
-        i += 2
-    print("Initial optimal: "+str(optimal))'''
-    count = 0
-    while True:  # //TODO: inf loop for MSAs
-        if row == 0 and col == 0:
-            break
-        # if match or mismatch
-        if (table[row - 1][col - 1] + matchCost == score) or (table[row - 1][col - 1] + mismatchCost == score):
-            #add all aligned nucleotides representing each position of alignment in each cell
-            if not flag:
-                optimal[0] += seqsList1[0][col - 1]
-                optimal[1] += seqsList2[0][row - 1]
-            else:
-                #print("msa")
-                optimal[0] += seqsList1[0][row - 1]
-                #print(optimal[0], seqsList1[0][row-1])
-                optimal[1] += seqsList2[0][col - 1]
-                optimal[2] += seqsList1[1][row - 1]
-                optimal[3] += seqsList2[1][col - 1]
-                break
-            row = row-1
-            col = col-1
-            #print("Match/mismatch: "+str(optimal))
-        # if gap left
-        elif table[row][col - 1] + gapCost == score:
-            #for i in range(len(optimal)-1):
-            if not flag:
-                optimal[0] += seqsList1[0][col - 1]
-                optimal[1] += "-"
-            else:
-                optimal[0] += seqsList1[0][col - 1]
-                optimal[1] += "-"
-                optimal[2] += seqsList1[1][col - 1]
-                optimal[3] += "-"
-                break
-            col = col - 1
-           # print("Gap 1: "+str(optimal))
-        elif table[row - 1][col] + gapCost == score:
-            #for i in range(len(optimal)-1):
-            if not flag:
-                optimal[0] += "-"
-                optimal[1] += seqsList2[0][row - 1]
-            else:
-                optimal[0] += "-"
-                optimal[1] += seqsList2[0][row - 1]
-                optimal[2] += "-"
-                optimal[3] += seqsList2[1][row - 1]
-                break
-            row = row - 1
-           # print("Gap 2:"+str(optimal))
-        score = table[row][col]
-        count+=1
-        # if gap top
-    # reverse strings
-    for i in range(len(optimal)):
-        optimal[i] = optimal[i][::-1]
-        #optimal[1] = optimal[1][::-1]
-    return optimal
 
 
 def printAlignment(seqsList):
@@ -316,7 +211,96 @@ def printAlignment(seqsList):
         print(seqsList[i])
     print("########################")
 
-
+def traceback(table, seqsList1, seqsList2):
+    """This method does a traceback in the completed dynamic programming table to produce an alignment.
+    Only one optimal alignment is to be returned. In the case where an optimal score comes from more than one previous cell (diagonal, left, top), always prioritize,
+    in this order: (1) matches/mismatches, (2) gaps from the left, (3) gaps from the top.
+    """
+    row = table.shape[0] - 1  # vertical/top-bottom dimension
+    col = table.shape[1] - 1  # horizontal/left-right dimension
+    
+    # Create array to store aligned sequences
+    totalLen = len(seqsList1) + len(seqsList2)
+    optimal = ["" for _ in range(totalLen)]
+    score = table[row][col]
+    
+    # Build character lists like in fillTable
+    charList1 = [''] * len(seqsList1[0])
+    charList2 = [''] * len(seqsList2[0])
+    
+    for count in range(len(seqsList1[0])):
+        for s1 in seqsList1:
+            charList1[count] = charList1[count] + s1[count]
+        for s2 in seqsList2:
+            if count < len(seqsList2[0]):
+                charList2[count] = charList2[count] + s2[count]
+            else:
+                break
+    
+    while row >= 0 and col >= 0:
+        # Priority 1: Check if current score came from diagonal using sop
+        if row > 0 and col > 0:
+            diag_score = table[row - 1][col - 1]
+            # Calculate sop for current position
+            sop = calculateSumOfPairs([charList1[col-1]], [charList2[row-1]])
+            
+            # Check if we got here through diagonal using the actual sop value
+            if score == diag_score + sop:
+                # Add characters from both groups
+                for i in range(len(seqsList1)):
+                    optimal[i] = seqsList1[i][col-1] + optimal[i]
+                for i in range(len(seqsList2)):
+                    optimal[i + len(seqsList1)] = seqsList2[i][row-1] + optimal[i + len(seqsList1)]
+                row -= 1
+                col -= 1
+                score = diag_score
+                continue
+        
+        # Priority 2: Check if current score came from left
+        if col > 0:
+            left_score = table[row][col-1]
+            if score == left_score + gapCost:
+                # Add characters from group 1, gaps for group 2
+                for i in range(len(seqsList1)):
+                    optimal[i] = seqsList1[i][col-1] + optimal[i]
+                for i in range(len(seqsList2)):
+                    optimal[i + len(seqsList1)] = "-" + optimal[i + len(seqsList1)]
+                col -= 1
+                score = left_score
+                continue
+        
+        # Priority 3: Check if current score came from top
+        if row > 0:
+            top_score = table[row-1][col]
+            if score == top_score + gapCost:
+                # Add gaps for group 1, characters from group 2
+                for i in range(len(seqsList1)):
+                    optimal[i] = "-" + optimal[i]
+                for i in range(len(seqsList2)):
+                    optimal[i + len(seqsList1)] = seqsList2[i][row-1] + optimal[i + len(seqsList1)]
+                row -= 1
+                score = top_score
+                continue
+        
+        # If we get here, we must be at (0,0) or something is wrong
+        if row == 0 and col == 0:
+            break
+        '''else:
+            print(f"\nDiagnostic at position row={row}, col={col}:")
+            print(f"Current score: {score}")
+            if row > 0 and col > 0:
+                print(f"Diagonal score: {diag_score}")
+                print(f"SOP value: {sop}")
+                print(f"Diagonal check: {score} == {diag_score} + {sop}")
+            if col > 0:
+                print(f"Left score: {table[row][col-1]}")
+                print(f"Left check: {score} == {table[row][col-1]} + {gapCost}")
+            if row > 0:
+                print(f"Top score: {table[row-1][col]}")
+                print(f"Top check: {score} == {table[row-1][col]} + {gapCost}")
+            break'''
+    
+    return optimal
 ############
 ####MAIN####
 ############
