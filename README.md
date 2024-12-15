@@ -28,7 +28,7 @@ builds and validates the blockchain. There is no block mining implemented becaus
 - The consensus process is done every 2 minutes to ensure the application blockchain remains synched with the network longest chain
 Created for a Distributed Computing course at the University of Manitoba.
 
-## [2D Multiagent Systems Communication Evaluation](2d_Multiagent_Systems_paper.docx)
+## [2D Multiagent Systems Communication Evaluation](Multiagent-Systems)
 A research project on efficent methods of communication of 2D multiagent systems. Each method was evaluated based on its ability to determine the necessity of communication, information space allotment, value calculations, and dealing with common communication problems.
 
 Created for an introductory AI course at the University of Manitoba.
