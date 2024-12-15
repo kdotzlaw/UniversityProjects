@@ -63,7 +63,7 @@ If the policy solves more than one common communication problems, it receives 2 
 
 ### Results
 
-| Communication Technique | Choice to Communicate | Information Space Allotment | Value Calculations | Solutions to Common Communication Problems |Total|
+| Communication Technique | Choice to Communicate | Information Space Allotment | Value Calculations | Solutions to Common Communication Problems | Total |
 | --- | --- | --- | --- | --- |
 | Reinforcement Learning | 1 | 1 | 1 | 2 |5|
 |Myopic Cognitive Communication | 1 | 1 | 1 | 0 |3|
