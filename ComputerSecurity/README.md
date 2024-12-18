@@ -6,14 +6,14 @@ A collection of labs and lab reports created during Computer Security at the Uni
 
 ### CBC vs ECB Encryption
 Given the original image, I compared the security of CBC and ECB encryption.
-![](/img/orig_rsaImg.JPG)
+![](img/orig_rsaImg.JPG)
 
 Using the command line and the same key (123456789) to encrypt the image, I obtained the following encrypted images:
 
-![](/img/rsa_CBC_encrypt.JPG)
+![](img/rsa_CBC_encrypt.JPG)
 In the image encrypted with CBC, there are no clear patterns to see, only noise. 
 
-![](/img/rsa_ECB_encrypt.JPG)
+![](img/rsa_ECB_encrypt.JPG)
 In the image encrypted with ECB, there are clear patterns that show the shapes and similar colors to the original image. Typically, images are not suitable for ECB encryption because patterns are repeated with ECB encryption.
 
 Compared to CBC, ECB encryption is less secure because clear patterns are visible.
