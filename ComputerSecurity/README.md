@@ -2,7 +2,7 @@
 
 A collection of labs and lab reports created during Computer Security at the University of Manitoba
 
-##  Lab 1 - Encryption and Decryption
+##  [Lab 1 - Encryption and Decryption](rsa/rsa.pdf)
 
 ### CBC vs ECB Encryption
 Given the original image, I compared the security of CBC and ECB encryption.
@@ -35,7 +35,7 @@ To verify the encryption, I used the following:
 - The encrypted text is decrypted using the private key `d` and `res = ciphertext ^ d mod n`
 - The decrypted text is given in hex and when converted to ASCII, it is "A top secret!"
 
-## Lab 2 - Buffer Overflow Exploit & Address Randomization
+## [Lab 2 - Buffer Overflow Exploit & Address Randomization](buffer-overflow/bufferoverflow-address-randomization.pdf)
 This lab compares the exploitability of a buffer overflow attack and the effectiveness of address randomization. 
 
 ### Buffer Overflow
@@ -48,7 +48,7 @@ I edited the provided python script to change the return address to perform a bu
 
 With address randomization on, it took just over 12 minutes for the buffer overflow exploit to work.
 
-## Lab 3 - Environment Variable Manipulation
+## [Lab 3 - Environment Variable Manipulation](env-vars/env-vars.pdf)
 This lab is a demonstration of environmeent variable manipulation, creation, and passing environement variables between processes.
 
 ### Passing Environment Variables
@@ -69,7 +69,7 @@ Running `goodls` searches the correct path and runs `ls`.
 To get `suid.c` to run a trojan, I created another file (`badls`) and compiled it into `ls`.  I changed the PATH environement variable so that the home directory will be searched before the PATH variable. Since `badls` was compiled into `ls` and it has the same name as the relative path in `goodls`, it was run before `goodls` and the trojan was executed.
 
 
-## Lab 4 -  SQL Injection
+## [Lab 4 -  SQL Injection](SQL-injection/sql-injection.pdf)
 This lab is a demonstration of SQL injection using a webpage form and the command line to view and change database information. 
 SQL injection commands include:
 - Injection via `SELECT`  directly on a web page
@@ -77,7 +77,7 @@ SQL injection commands include:
 - Injection via appending a new SQL statement on a web page
 - Injection via `UPDATE` on a web page
 
-## Lab 5 -  SYN-Flooding & SYN-Cookie Countermeasure
+## [Lab 5 -  SYN-Flooding & SYN-Cookie Countermeasure](SYN-flooding/SYN-flooding.pdf)
 This lab uses Docker containers to simulate a SYN-Flooding attack on a victim server.
 
 ### SYN-Flooding
