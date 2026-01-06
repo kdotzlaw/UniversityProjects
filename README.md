@@ -18,7 +18,7 @@ Implemented an Echo State Network, evaluated the impact of hyperparameters on th
 
 
 ## [Blockchain](Blockchain)
-A distributed computing application that builds and validates a blockchain by requesting blocks from peers. This application was built in Python and uses Socketsto send requests and receive responses from peers. It purely
+A distributed computing application that builds and validates a blockchain by requesting blocks from peers. This application was built in Python and uses Sockets to send requests and receive responses from peers. It purely
 builds and validates the blockchain. There is no block mining implemented because other peers on the network mined blocks faster than the local application could.
 - On joining the network, a keep_alive ping is sent to 3 random peers and is repeated every 30 seconds
 - Blocks are requested round-robin from all peers with the longest chain
