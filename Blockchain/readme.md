@@ -24,7 +24,7 @@ To be considered valid a block must meet the following criteria:
 - Its hash must respect the order predefined by instructor
 - The block difficulty must be at least 9
 
-Consensus is done automatically every 2 minutes to ensure chain synchronization.
+
 
 To ensure local chain synchronization with the distributed chain:
 - Consensus is done every 2 minutes 
