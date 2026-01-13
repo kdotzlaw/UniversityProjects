@@ -1,6 +1,14 @@
 # University Projects
 A collection of various projects done during my bachelor's of Computer Science at the University of Manitoba.
 
+## [Analyzing Covid-19 Data to Predict Long Covid-19 Cases](DataMining/)
+
+Used demographic data and Covid-19 data to mine association rules and create a classifier to predict the development of Long Covid-19. Resulted in 3 publications in IEEEE:
+1. [A Data Science Solution for Analyzing Long COVID Cases](https://ieeexplore.ieee.org/document/10229344)(2023)
+2. [Data Analytics and Prediction of Long COVID Cases with Fuzzy Logic](https://ieeexplore.ieee.org/document/10309753)(2023)
+3. [Mining Big Healthcare Data to Predict Long COVID Cases](https://ieeexplore.ieee.org/document/10143145)(2023)
+
+
 ## [Query Optimization](QueryOptimization.pdf)
 Wrote and optimized queries for Databases 2 at the University of Manitoba.
 - Compared non-optimized SQLite queries to queries optimized with non-clustering B+ tree indexes, covering indexes, and partial indexes.
