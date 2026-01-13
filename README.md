@@ -1,4 +1,5 @@
 # University Projects
+A collection of various projects done during my bachelor's of Computer Science at the University of Manitoba.
 
 ## [Query Optimization](QueryOptimization.pdf)
 Wrote and optimized queries for Databases 2 at the University of Manitoba.
@@ -17,7 +18,7 @@ Implemented an Echo State Network, evaluated the impact of hyperparameters on th
 
 
 ## [Blockchain](Blockchain)
-A distributed computing application that builds and validates a blockchain by requesting blocks from peers. This application was built in Python and uses Socketsto send requests and receive responses from peers. It purely
+A distributed computing application that builds and validates a blockchain by requesting blocks from peers. This application was built in Python and uses Sockets to send requests and receive responses from peers. It purely
 builds and validates the blockchain. There is no block mining implemented because other peers on the network mined blocks faster than the local application could.
 - On joining the network, a keep_alive ping is sent to 3 random peers and is repeated every 30 seconds
 - Blocks are requested round-robin from all peers with the longest chain
@@ -27,8 +28,8 @@ builds and validates the blockchain. There is no block mining implemented becaus
 - The consensus process is done every 2 minutes to ensure the application blockchain remains synched with the network longest chain
 Created for a Distributed Computing course at the University of Manitoba.
 
-## [Multiagent Systems](2d_Multiagent_Systems_paper.docx)
-A research project on efficent methods of communication of multiagent systems. Each method was evaluated based on its ability to determine the necessity of communication, information space allotment, value calculations, and dealing with common communication problems.
+## [2D Multiagent Systems Communication Evaluation](Multiagent-Systems)
+A research project on efficent methods of communication of 2D multiagent systems. Each method was evaluated based on its ability to determine the necessity of communication, information space allotment, value calculations, and dealing with common communication problems.
 
 Created for an introductory AI course at the University of Manitoba.
 
@@ -48,3 +49,24 @@ A recursive bioinformatic algorithm that uses a matrix of taxa pairs and the ass
 ### [Hidden Markov Models](BioInformatics/Hidden_Markov_Models)
 An implementation of a stochastic model with the Markov property that uses a transition matrix, an emission matrix, the forward algorithm, and an output sequence
 to determine the total probability that the given output sequence is produced by the model.
+
+
+## [Computer Security](ComputerSecurity/)
+
+A collection of various assignments done in a Computer Security course at the University of Manitoba using Python, SQL, C, and Linux.
+
+### [Encryption and Decryption](ComputerSecurity/rsa)
+
+A comparison between CBC encryption and ECB encryption on a given image, and a demonstration of  RSA encryption and decryption on given text.
+
+### [Buffer Overflow Exploit & Address Randomization](ComputerSecurity/buffer-overflow)
+An experiment to determine the impact of address randomization on buffer overflow exploits, and a demonstration of a buffer overflow exploit.
+
+### [Environment Variables](ComputerSecurity/env-vars)
+A demonstration of environment variable manipulation in Linux, including passing environment variables between processes. Additionally explores the PATH environment variable and how it affects SUID programs.
+
+### [SQL Injection](ComputerSecurity/SQL-injection)
+Demonstrates  SQL injection attacks on a website using both CMD and website user input to perform injections. SQL injections include injection via `SELECT`, appending a new SQL statement to user input, and injection via `UPDATE`.
+
+### [SYN Flooding & SYN Cookie Countermeasure](ComputerSecurity/SYN-flooding)
+Demonstrates a SYN flooding attack and SYN cookie countermeasure using docker containers to simulate a victim and an attacker.
