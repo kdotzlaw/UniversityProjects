@@ -80,3 +80,7 @@ Demonstrates  SQL injection attacks on a website using both CMD and website user
 
 ### [SYN Flooding & SYN Cookie Countermeasure](ComputerSecurity/SYN-flooding)
 Demonstrates a SYN flooding attack and SYN cookie countermeasure using docker containers to simulate a victim and an attacker.
+
+## [Clue](Clue)
+An interactive game of Clue written in Ruby following OOP principles. Created for Comp 2150.
+
