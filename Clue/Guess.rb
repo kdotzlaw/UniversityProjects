@@ -1,5 +1,4 @@
 #NAME: Katrina Dotzlaw
-#STUDENT NUMBER: 7833061
 #COURSE: COMP 2150 A02 Domaratzki
 #CLASS: Guess - create Guess objects that are used by players to make suggestions or accusations about WHODUNNIT
 

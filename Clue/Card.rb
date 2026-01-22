@@ -1,5 +1,4 @@
 #NAME: Katrina Dotzlaw
-#STUDENT NUMBER: 7833061
 #COURSE: COMP 2150 A02 Domaratzki
 #CLASS: Card - creates cards objects that are dealt to players
 

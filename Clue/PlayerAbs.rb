@@ -1,5 +1,4 @@
 #NAME: Katrina Dotzlaw
-#STUDENT NUMBER: 7833061
 #COURSE: COMP 2150 A02 Domaratzki
 #CLASS: PlayerAbs - in charge of setting up players 
   #this is an abstract class

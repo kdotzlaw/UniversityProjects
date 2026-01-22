@@ -1,5 +1,4 @@
 #NAME: Katrina Dotzlaw
-#STUDENT NUMBER: 7833061
 #COURSE: COMP 2150 A02 Domaratzki
 #CLASS: Player - subclass of PlayerAbs, and it controls the computer players
 class Player < PlayerAbs
